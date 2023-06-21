@@ -19,6 +19,13 @@ timer = None
 def reset_function():
     global reps
     window.after_cancel(timer)
+    reset_time = '00:00'
+    reset_checkmarks = '✔'
+    reset_title = 'Timer'
+    label.config(text=reset_title)
+    check_mark_label.config(text=reset_checkmarks)
+    check_mark_label.grid(row=3, column=1)
+    canvas.itemconfig(text, text=reset_time)
     reps = 1
 
 
@@ -34,7 +41,7 @@ def timer_mechanism():
     long_break_sec = LONG_BREAK_MIN * 60
     if reps == 8:
         start_function(long_break_sec)
-        label.config(text=" Long Break")
+        label.config(text="Long Break")
         check_mark_label.config(text=check_mark)
         check_mark_label.grid(row=3, column=1)
     if reps == 1 or reps == 3 or reps == 5 or reps == 7:
